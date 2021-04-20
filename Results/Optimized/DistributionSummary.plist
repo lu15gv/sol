@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>JardinDeJuegos.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>66C53177751379A5326CDAF76B92076427429189</string>
+				<key>dateExpires</key>
+				<string>30/11/21</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>34ED4FWC33.lagv.JardinDeJuegos.1</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>34ED4FWC33</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>34ED4FWC33.lagv.JardinDeJuegos.1</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>JardinDeJuegos.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>4b33b6fe-ef36-49ff-b2eb-9746a8ed1773</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: lagv.JardinDeJuegos.1</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>34ED4FWC33</string>
+				<key>name</key>
+				<string>Luis Gomez</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
