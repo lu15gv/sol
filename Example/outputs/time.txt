@@ -1,8 +1,0 @@
-2021-04-20 16:59:28 -> log parser started
-2021-04-20 16:59:28 -> llvm-link started
-2021-04-20 16:59:35 -> optimizer started
-2021-04-20 16:59:42 -> llc started
-2021-04-20 16:59:54 -> linker started
-2021-04-20 16:59:55 -> strip started
-2021-04-20 16:59:55 -> signing started
-2021-04-20 16:59:55 -> finished

@@ -50,12 +50,12 @@ save_timestamp(){
   echo "${CURRENT_TIME} -> ${SUFIX}" >> $TIME_FILE
 }
 
-# echo "********************************** Archive ***********************************"
-# save_timestamp "archive started"
+echo "********************************** Archive ***********************************"
+save_timestamp "archive started"
 
-# xcodebuild -workspace $WORKSPACE \
-# -scheme $SCHEME clean \
-# archive | tee $XCODE_BUILD_LOG | xcbeautify
+xcodebuild -workspace $WORKSPACE \
+-scheme $SCHEME clean \
+archive | tee $XCODE_BUILD_LOG | xcbeautify
 
 echo "******************************** Log Parser **********************************"
 save_timestamp "log parser started"
