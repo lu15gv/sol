@@ -17,6 +17,7 @@ struct LLVMLinkWrapper {
             print("ERROR: missing llvm-link path, please provide it")
             exit(1)
         }
+        print("LLVMlink: \(llvmLinkPath)")
         self.llvmLinkPath = llvmLinkPath
     }
     

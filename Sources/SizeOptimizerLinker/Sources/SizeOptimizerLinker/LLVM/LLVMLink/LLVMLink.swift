@@ -166,19 +166,13 @@ extension LLVMLink {
     }
     
     private func runSwift(swiftIRFile: String, moduleName: String, outputFileName: String) {
-        var arguments: [String] = []
+        var arguments: [String] = ["-frontend", "-c", "-primary-file", swiftIRFile,
+                                   "-emit-bc", "-target", "arm64-apple-ios12.0",
+                                   "-Xllvm", "-aarch64-use-tbi", "-Osize",
+                                   "-disable-llvm-optzns", "-module-name",
+                                   String(moduleName), "-o", outputFileName]
         if enableBitcode {
-            arguments = ["-frontend", "-c", "-primary-file", swiftIRFile, "-embed-bitcode",
-                             "-emit-bc", "-target", "arm64-apple-ios12.0",
-                             "-Xllvm", "-aarch64-use-tbi", "-Osize",
-                             "-disable-llvm-optzns", "-module-name",
-                             String(moduleName), "-o", outputFileName]
-        } else {
-            arguments = ["-frontend", "-c", "-primary-file", swiftIRFile,
-                             "-emit-bc", "-target", "arm64-apple-ios12.0",
-                             "-Xllvm", "-aarch64-use-tbi", "-Osize",
-                             "-disable-llvm-optzns", "-module-name",
-                             String(moduleName), "-o", outputFileName]
+            arguments.insert("-embed-bitcode", at: 4)
         }
         shell(launchPath: swift, arguments: arguments)
     }

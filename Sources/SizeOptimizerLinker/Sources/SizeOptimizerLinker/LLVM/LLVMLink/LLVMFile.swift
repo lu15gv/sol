@@ -69,10 +69,6 @@ struct LLVMFile {
     }
     
     func save() {
-        do {
-            try raw.write(to: url, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-            print("ERROR: unable to save \(url.path)")
-        }
+        FileHandler().save(text: self.raw, to: self.url)
     }
 }

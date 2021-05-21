@@ -28,6 +28,7 @@ fi
 
 STRIP="$XCTOOLCHAIN/usr/bin/strip"
 DSYM_UTIL="$XCTOOLCHAIN/usr/bin/dsymutil"
+SWIFT="$XCTOOLCHAIN/usr/bin/swift"
 
 LLVM_LINK="$LLVM/bin/llvm-link"
 LLVM_DIS="$LLVM/bin/llvm-dis"
@@ -87,7 +88,7 @@ fi
 if [ ! -z "$WHITELIST" ]; then
     LINKER_PARAMS+=(--targets-white-list "$WHITELIST")
 fi
-if [ "$ENABLE_BITCODE" = "TRUE" ]; then
+if $ENABLE_BITCODE ; then
     LINKER_PARAMS+=(--enable-bitcode)
 fi
 
@@ -95,6 +96,7 @@ $SOL link \
 --dependencies-paths-file $ENVIRONMENT \
 --llvm-link $LLVM_LINK \
 --llvm-dis $LLVM_DIS \
+--swift "$SWIFT" \
 -o ${OPTIMIZED}WholeApp.ll \
 "${LINKER_PARAMS[@]}"
 

@@ -1,7 +1,7 @@
 BASEDIR=$(dirname "$0")
 
 OPT_CLANG_PATH=$BASEDIR/Executables/LLVM_TOOLS_XCODE_12_4/bin/clang
-OPT_CLANG_PP=$BASEDIR/Executables/LLVM_TOOLS_XCODE_12_4/bin/clang\
+OPT_CLANG_PP=$BASEDIR/Executables/LLVM_TOOLS_XCODE_12_4/bin/clang++
 
 export OPT_CLANG=$OPT_CLANG_PATH
 export OPT_CLANG_PP=$OPT_CLANG_PP
