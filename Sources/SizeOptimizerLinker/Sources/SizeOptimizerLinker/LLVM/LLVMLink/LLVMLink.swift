@@ -54,6 +54,9 @@ struct LLVMLink: ParsableCommand {
     @Flag(name: [.short, .long], help: "Wheter or not add bitcode. To enable this, you must have compiled with bitcode enabled.")
     var enableBitcode: Bool = false
     
+    @Option(name: [.long], help: "Build configuration. 'Debug' or 'Release'")
+    var configuration: String?
+    
     private func outputFileName() throws -> String {
         guard let outputFileName = output else {
             throw LLVMError.output
@@ -63,7 +66,7 @@ struct LLVMLink: ParsableCommand {
     
     func run() throws {
         let derivedDataPaths = DerivedDataPaths(dependenciesPathsFile: dependenciesPathsFile)
-        let derivedDataManager = DerivedDataManager(derivedDataPaths: derivedDataPaths)
+        let derivedDataManager = try DerivedDataManager(derivedDataPaths: derivedDataPaths, configuration: configuration)
         let linker = LLVMLinkWrapper(llvmLinkPath: llvmLink)
         let outputIRFileByTarget = linkIRByTarget(derivedData: derivedDataManager, linker: linker)
         try fixDuplicatedSymbols(outputIRFileByTarget: outputIRFileByTarget)
@@ -166,6 +169,7 @@ extension LLVMLink {
     }
     
     private func runSwift(swiftIRFile: String, moduleName: String, outputFileName: String) {
+        
         var arguments: [String] = ["-frontend", "-c", "-primary-file", swiftIRFile,
                                    "-emit-bc", "-target", "arm64-apple-ios12.0",
                                    "-Xllvm", "-aarch64-use-tbi", "-Osize",
@@ -174,6 +178,8 @@ extension LLVMLink {
         if enableBitcode {
             arguments.insert("-embed-bitcode", at: 4)
         }
+        // Shell debug
+        print("Swiftc: \(swift)\nArguments:\n\(arguments.description(separator: " "))\n")
         shell(launchPath: swift, arguments: arguments)
     }
     

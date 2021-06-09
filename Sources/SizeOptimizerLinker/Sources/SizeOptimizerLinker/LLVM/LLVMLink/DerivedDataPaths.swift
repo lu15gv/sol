@@ -37,8 +37,9 @@ struct DerivedDataPaths {
         self.init(raw: dependenciesNamesAndPathsRaw)
     }
     
-    init(lines: [String], projectName: String) {
-        if let builtProductsDir = lines.first(where: { $0.contains("export BUILT_PRODUCTS_DIR\\") && $0.hasSuffix("/Release-iphoneos") }) {
+    init(lines: [String], projectName: String, configuration: String?) throws {
+        let llvmConfiguration = try LLVMConfiguration(configuration: configuration)
+        if let builtProductsDir = lines.first(where: { $0.contains("export BUILT_PRODUCTS_DIR\\") && $0.hasSuffix("/\(llvmConfiguration.path)") }) {
             self.dependenciesPaths["BUILT_PRODUCTS_DIR"] = clean(raw: builtProductsDir, key: "BUILT_PRODUCTS_DIR")
         }
         if let objRoot = lines.first(where: { $0.contains("export OBJROOT\\")} ) {
@@ -47,7 +48,7 @@ struct DerivedDataPaths {
         if let contentsFolderPath = lines.first(where: { $0.contains("export CONTENTS_FOLDER_PATH\\") && $0.hasSuffix(".app") }) {
             self.dependenciesPaths["CONTENTS_FOLDER_PATH"] = clean(raw: contentsFolderPath, key: "CONTENTS_FOLDER_PATH")
         }
-        if let configurationTempDir = lines.first(where: { $0.contains("export CONFIGURATION_TEMP_DIR\\") && $0.hasSuffix("\(projectName).build/Release-iphoneos") }) {
+        if let configurationTempDir = lines.first(where: { $0.contains("export CONFIGURATION_TEMP_DIR\\") && $0.hasSuffix("\(projectName).build/\(llvmConfiguration.path)") }) {
             self.dependenciesPaths["CONFIGURATION_TEMP_DIR"] = clean(raw: configurationTempDir, key: "CONFIGURATION_TEMP_DIR")
         }
     }

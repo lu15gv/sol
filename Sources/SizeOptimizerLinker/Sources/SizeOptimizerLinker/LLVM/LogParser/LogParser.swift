@@ -36,7 +36,8 @@ struct LogParser: ParsableCommand {
     @Option(name: [.long], help: "Path were outputs will be saved.")
     var outputs: String?
     
-    
+    @Option(name: [.long], help: "Build configuration. 'Debug' or 'Release'")
+    var configuration: String?
     
     func run() throws {
         let xcodeBuildLogFile = try getLogFile()
@@ -46,7 +47,7 @@ struct LogParser: ParsableCommand {
         guard let project = project else {
             throw ArgumentError.xcodeBuildLogFile
         }
-        let derivedDataPaths = getDerivedDataPaths(lines: lines, project: project)
+        let derivedDataPaths = try getDerivedDataPaths(lines: lines, project: project)
         let derivedDataPathsRaw = derivedDataPaths.getRawFormat()
         let certificateID = try getCertificateID(lines: lines)
         guard let outputs = outputs else {
@@ -84,8 +85,8 @@ struct LogParser: ParsableCommand {
         return lines[linkerArgumentsIndex]
     }
     
-    private func getDerivedDataPaths(lines: [String], project: String) -> DerivedDataPaths {
-        return DerivedDataPaths(lines: lines, projectName: project)
+    private func getDerivedDataPaths(lines: [String], project: String) throws -> DerivedDataPaths {
+        return try DerivedDataPaths(lines: lines, projectName: project, configuration: configuration)
     }
     
     private func getCertificateID(lines: [String]) throws -> String {

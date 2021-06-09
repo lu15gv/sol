@@ -39,17 +39,22 @@ struct ClangLinker: ParsableCommand {
     @Option(name: [.long], help: "Executable path file.")
     var executableFile: String?
     
+    @Option(name: [.long], help: "Build configuration. 'Debug' or 'Release'")
+    var configuration: String?
+    
     func run() throws {
         let allArguments = try getLinkArgumentsFile().lines[0]
         let argumentsBitcode = bitcode(arguments: allArguments)
         let argumentsList = split(arguments: argumentsBitcode)
-        let (argumentsWithoutStaticImports, staticNames) = removeStaticLibrariesImports(arguments: argumentsList)
+        let (argumentsWithoutStaticImports, staticNames) = try removeStaticLibrariesImports(arguments: argumentsList)
         let argumentsWithoutStaticCalls = removeStaticLibrariesCalls(arguments: argumentsWithoutStaticImports, staticNames: staticNames)
         let argmentsWithLinkFileList = try replace(value: linkFileList, for: "-filelist", in: argumentsWithoutStaticCalls)
         let argmentsWithOutput = try replace(value: executableFile, for: "-o", in: argmentsWithLinkFileList)
         let clang = argmentsWithOutput[0]
         var arguments = argmentsWithOutput
         arguments.remove(at: 0)
+        // Shell debug
+        print("Clang linker:\(clang)\nArguments:\n\(arguments.description(separator: " "))\n")
         shell(launchPath: clang, arguments: arguments)
     }
 
@@ -71,11 +76,12 @@ struct ClangLinker: ParsableCommand {
         return array
     }
     
-    private func removeStaticLibrariesImports(arguments: [String]) -> (arguments: [String], staticNames: [String]) {
+    private func removeStaticLibrariesImports(arguments: [String]) throws -> (arguments: [String], staticNames: [String]) {
         var argumentsFiltered: [String] = []
         var staticNames: [String] = []
+        let llvmConfiguration = try LLVMConfiguration(configuration: configuration)
         for argument in arguments {
-            if argument.hasPrefix("-L") && argument.contains("Release-iphoneos/") {
+            if argument.hasPrefix("-L") && argument.contains("\(llvmConfiguration.path)/") {
                 print("removed \(argument)")
                 if let name = argument.split(separator: "/").last {
                     staticNames.append(String(name))

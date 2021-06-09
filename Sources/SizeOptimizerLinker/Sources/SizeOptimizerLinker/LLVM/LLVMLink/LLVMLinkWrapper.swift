@@ -34,6 +34,8 @@ struct LLVMLinkWrapper {
         if index > 0 {
             arguments = [outputFileName] + arguments
         }
+        // Shell debug
+        print("llvm-link: \(llvmLinkPath)\nArguments:\n\(arguments.description(separator: " "))\n")
         shell(launchPath: llvmLinkPath, arguments: arguments)
         printProgress(total: total, index: index)
     }

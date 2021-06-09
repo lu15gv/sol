@@ -16,9 +16,12 @@ struct DerivedDataManager {
     
     var data: DerivedData = DerivedData()
     let paths: DerivedDataPaths
+    private let llvmConfiguration: LLVMConfiguration
     
-    init(derivedDataPaths: DerivedDataPaths) {
+    init(derivedDataPaths: DerivedDataPaths, configuration: String?) throws {
         self.paths = derivedDataPaths
+        let llvmConfiguration = try LLVMConfiguration(configuration: configuration)
+        self.llvmConfiguration = llvmConfiguration
         //../DerivedData/RappiUI-ezrfcixsrofvcxbcisyqamzioovk/Build/Intermediates.noindex/ArchiveIntermediates/RappiUI-Example/IntermediateBuildFilesPath
         let intermediates = derivedDataPaths.path(for: .objRoot)
 
@@ -30,7 +33,7 @@ struct DerivedDataManager {
         // ../IntermediateBuildFilesPath/Pods.build/Release-iphoneos
         // ../IntermediateBuildFilesPath/RappiUI.build/Release-iphoneos
         // ...
-        let releaseiPhoneos = projects.map{ append("Release-iphoneos", to: $0) }
+        let releaseiPhoneos = projects.map{ append(llvmConfiguration.path, to: $0) }
         
         // ../Release-iphoneos/Alamofire.build
         // ../Release-iphoneos/AppConfig.build
@@ -111,7 +114,7 @@ struct DerivedDataManager {
     
     func getTargetName(forOutputFileName outputFileName: String) -> String? {
         let outputFilePathSections = outputFileName.split(separator: "/")
-        guard let releaseIphoneosIndex = outputFilePathSections.firstIndex(where: { $0 == "Release-iphoneos" } ) else {
+        guard let releaseIphoneosIndex = outputFilePathSections.firstIndex(where: { $0 == llvmConfiguration.path } ) else {
             print("ERROR, module not found for: \(outputFileName)")
             return nil
         }
