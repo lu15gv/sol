@@ -1,2 +1,2 @@
 LLVM_tools/XCODE_12_4/** filter=lfs diff=lfs merge=lfs -text
-LLVM_tools/XCODE_12_4/** filter=lfs diff=lfs merge=lfs -text
+LLVM_tools/XCODE_12_5/** filter=lfs diff=lfs merge=lfs -text
