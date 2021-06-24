@@ -10,20 +10,6 @@ import ArgumentParser
 
 struct LLVMLink: ParsableCommand {
     
-    private enum LLVMError: LocalizedError {
-        case llvmDis
-        case output
-        
-        var errorDescription: String {
-            switch self {
-            case .llvmDis:
-                return "ERROR: missing llvm-dis path, please provide it."
-            case .output:
-                return "ERROR: missing output path, please provide it."
-            }
-        }
-    }
-    
     static var configuration = CommandConfiguration(commandName: "link",
                                                     abstract: "Links IR files from derived data. This is used in release pipeline.")
     
@@ -59,7 +45,7 @@ struct LLVMLink: ParsableCommand {
     
     private func outputFileName() throws -> String {
         guard let outputFileName = output else {
-            throw LLVMError.output
+            throw LLVMError.runtimeError("Missing '--output' flag. Please provide it")
         }
         return outputFileName
     }
@@ -79,10 +65,12 @@ struct LLVMLink: ParsableCommand {
             print("Replace symbols phase was not necessary")
             return
         }
-        guard let llvmDis = llvmDis,
-              let url = URL(string: "file://" + symbolsFile) else {
-            throw LLVMError.llvmDis
-        }
+      guard let llvmDis = llvmDis else {
+          throw LLVMError.runtimeError("Missing '--llvm-dis' flag. Please provide it")
+      }
+      guard let url = URL(string: "file://" + symbolsFile) else {
+          throw LLVMError.runtimeError("Unable to create url from: \(symbolsFile)")
+      }
         let symbolsData = try Data(contentsOf: url)
         let jsonDecoder = JSONDecoder()
         let replaceable = try jsonDecoder.decode(Replaceable.self, from: symbolsData)
@@ -170,7 +158,7 @@ extension LLVMLink {
     
     private func runSwift(swiftIRFile: String, moduleName: String, outputFileName: String) {
         
-        var arguments: [String] = ["-frontend", "-c", "-primary-file", swiftIRFile,
+        var arguments: [String] = ["-frontend", "-primary-file", swiftIRFile,
                                    "-emit-bc", "-target", "arm64-apple-ios12.0",
                                    "-Xllvm", "-aarch64-use-tbi", "-Osize",
                                    "-disable-llvm-optzns", "-module-name",

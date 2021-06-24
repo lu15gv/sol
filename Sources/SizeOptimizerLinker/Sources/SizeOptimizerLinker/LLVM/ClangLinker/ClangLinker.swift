@@ -10,20 +10,6 @@ import ArgumentParser
 
 struct ClangLinker: ParsableCommand {
     
-    private enum ArgumentError: LocalizedError {
-        case xcodeBuildLogFile
-        case linkFileList
-        
-        var errorDescription: String {
-            switch self {
-            case .xcodeBuildLogFile:
-                return "ERROR: missing xcodeBuildLogFile path, please provide it."
-            case .linkFileList:
-                return "ERROR: unable to find linklist parameter."
-            }
-        }
-    }
-    
     static var configuration = CommandConfiguration(commandName: "clang-linker",
                                                     abstract: "Finds and parses linker arguments from Xcode log and runs linker with those arguments.")
     
@@ -60,11 +46,11 @@ struct ClangLinker: ParsableCommand {
 
     private func getLinkArgumentsFile() throws -> LLVMFile {
         guard let linkArgumentsFile = linkArgumentsFile else {
-            throw ArgumentError.xcodeBuildLogFile
+          throw LLVMError.runtimeError("Missing '--link-arguments-file'. Please provide it")
         }
         let linkArgumentsFilePath = "file://" + linkArgumentsFile
         guard let linkArgumentsFileURL = URL(string: linkArgumentsFilePath) else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Unable to create url from: \(linkArgumentsFilePath)")
         }
         let file = LLVMFile(url: linkArgumentsFileURL)
         return file
@@ -128,7 +114,7 @@ struct ClangLinker: ParsableCommand {
             arguments[valueIndex] = value
             return arguments
         } else {
-            throw ArgumentError.linkFileList
+          throw LLVMError.runtimeError("Unable to replace value: \(String(describing: value)) for flag: \(flag) in arguments: \(arguments.description())")
         }
     }
 }

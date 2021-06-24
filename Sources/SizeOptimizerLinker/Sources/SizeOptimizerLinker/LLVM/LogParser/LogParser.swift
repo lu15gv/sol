@@ -10,17 +10,6 @@ import ArgumentParser
 
 struct LogParser: ParsableCommand {
     
-    private enum ArgumentError: LocalizedError {
-        case xcodeBuildLogFile
-        
-        var errorDescription: String {
-            switch self {
-            case .xcodeBuildLogFile:
-                return "ERROR: missing xcodeBuildLogFile path, please provide it."
-            }
-        }
-    }
-    
     static var configuration = CommandConfiguration(commandName: "log-parser",
                                                     abstract: "It finds and parses linker arguments from Xcode log and runs linker with those arguments.")
     
@@ -45,13 +34,13 @@ struct LogParser: ParsableCommand {
         let allArguments = try getAllLinkerArguments(lines: lines)
         let cleanedArguments = clean(arguments: allArguments)
         guard let project = project else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Missing '--project' parameter. Please provide it")
         }
         let derivedDataPaths = try getDerivedDataPaths(lines: lines, project: project)
         let derivedDataPathsRaw = derivedDataPaths.getRawFormat()
         let certificateID = try getCertificateID(lines: lines)
         guard let outputs = outputs else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Missing '--outputs' parameter. Please provide it")
         }
         let env = derivedDataPathsRaw + "\nCERT_ID=" + certificateID
         let envPath = "file://" + outputs + "/env.sh"
@@ -63,11 +52,11 @@ struct LogParser: ParsableCommand {
     
     private func getLogFile() throws -> LLVMFile {
         guard let xcodeBuildLogFile = xcodeBuildLogFile else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Missing '--xcode-build-log-file'. Please provide it")
         }
         let xcodeBuildLogFilePath = "file://" + xcodeBuildLogFile
         guard let xcodeBuildLogFileURL = URL(string: xcodeBuildLogFilePath) else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Unable to create url for strinf url: \(xcodeBuildLogFilePath)")
         }
         let file = LLVMFile(url: xcodeBuildLogFileURL)
         return file
@@ -75,11 +64,11 @@ struct LogParser: ParsableCommand {
     
     private func getAllLinkerArguments(lines: [String]) throws -> String {
         guard let target = target, let project = project else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Missing '--target' and/or '--project' name parameters. Please provide them")
         }
         let index = lines.firstIndex(where: { $0.contains("Ld ") && $0.contains("(in target '\(target)' from project '\(project)')") })
         guard let linkerDescriptionIndex = index else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Unable to find 'Ld' line in xcodebuild.log wich contains: '(in target '\(target)' from project '\(project)')'")
         }
         let linkerArgumentsIndex = linkerDescriptionIndex + 2
         return lines[linkerArgumentsIndex]
@@ -95,7 +84,7 @@ struct LogParser: ParsableCommand {
             let id = slices.split(separator: " ")[0]
             return String(id)
         } else {
-            throw ArgumentError.xcodeBuildLogFile
+            throw LLVMError.runtimeError("Unable to find codesign line in xcodebuild.log wich conatins: '/usr/bin/codesign --force --sign '")
         }
     }
     
