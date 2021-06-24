@@ -35,6 +35,7 @@ LLVM_LINK="$LLVM/bin/llvm-link"
 LLVM_DIS="$LLVM/bin/llvm-dis"
 OPT="$LLVM/bin/OPT"
 LLC="$LLVM/bin/llc"
+CLANG="$LLVM/bin/clang"
 
 TIME_FILE=$LOG_OUTPUT/time.txt
 XCODE_BUILD_LOG=$LOG_OUTPUT/xcodebuild.log
@@ -113,8 +114,17 @@ link_ir() {
   --swift "$SWIFT" \
   --configuration $CONFIGURATION \
   -o ${OPTIMIZED}WholeApp.ll \
-  "${LINKER_PARAMS[@]}"
+  "${LINKER_PARAMS[@]}" #> "$LOG_OUTPUT"/llvm-link.log
 
+  # swift -frontend -primary-file /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/Swinject.build/Objects-normal/arm64/ServiceKey.bc \
+  # -emit-bc \
+  # -embed-bitcode \
+  # -target arm64-apple-ios12.0 \
+  # -Xllvm -aarch64-use-tbi -Osize -disable-llvm-optzns \
+  # -module-name Swinject \
+  # -o /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/Swinject.build/Objects-normal/arm64/ServiceKey.o
+
+  # llvm-link someSwiftA.bc someSwiftB.bc -o some.ir
 }
 
 opt() {
@@ -129,10 +139,21 @@ opt() {
 llc() {
   echo_section "llc" #*************************************************************************
   save_timestamp "llc started"
-  $LLC \
-  ${OPTIMIZED}WholeApp.opt.ll \
-  -stats -filetype=obj -code-model=small -enable-machine-outliner=always -outline-repeat-count=5 -enable-linkonceodr-outlining \
-  -o ${OPTIMIZED}WholeApp.o
+  if [[ `xcodebuild -version | grep "Xcode 12.4"` ]] 
+  then
+    $LLC \
+    ${OPTIMIZED}WholeApp.opt.ll \
+    -stats -filetype=obj -code-model=small -enable-machine-outliner=always -outline-repeat-count=5 -enable-linkonceodr-outlining \
+    -o ${OPTIMIZED}WholeApp.o
+  fi
+
+  if [[ `xcodebuild -version | grep "Xcode 12.5"` ]] 
+  then
+    $LLC \
+    ${OPTIMIZED}WholeApp.opt.ll \
+    -stats -filetype=obj -code-model=small -enable-machine-outliner=always -machine-outliner-reruns=4 -enable-linkonceodr-outlining \
+    -o ${OPTIMIZED}WholeApp.o
+  fi
 }
 
 link_o() {
@@ -148,7 +169,7 @@ link_o() {
 
   CLANG_LINKER_PARAMS=()
   if $ENABLE_BITCODE ; then
-    echo "Bitcode true"
+    echo "Bitcode enabled"
       CLANG_LINKER_PARAMS+=(--enable-bitcode)
   fi
 
@@ -158,6 +179,29 @@ link_o() {
   --executable-file "$EXEC_PATH" \
   --configuration $CONFIGURATION \
   "${CLANG_LINKER_PARAMS[@]}"
+
+  # "$CLANG" -target arm64-apple-ios12.0 \
+  # -isysroot /Applications/Xcode\ 12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk \
+  # -L/Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/BuildProductsPath/Release-iphoneos \
+  # -F/Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/BuildProductsPath/Release-iphoneos \
+  # -filelist /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/optimized/arm64/WholeApp.LinkFileList \
+  # -Xlinker -rpath -Xlinker /usr/lib/swift \
+  # -Xlinker -rpath -Xlinker @executable_path/Frameworks \
+  # -dead_strip \
+  # -Xlinker -object_path_lto -Xlinker /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/JardinDeJuegos.build/Release-iphoneos/JardinDeJuegos.build/Objects-normal/arm64/JardinDeJuegos_lto.o \
+  # -fembed-bitcode \
+  # -Xlinker -bitcode_verify -Xlinker -bitcode_hide_symbols \
+  # -Xlinker -bitcode_symbol_map -Xlinker /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/BuildProductsPath/Release-iphoneos \
+  # -Xlinker -final_output -Xlinker /Applications/JardinDeJuegos.app/JardinDeJuegos \
+  # -fobjc-link-runtime \
+  # -L/Applications/Xcode\ 12.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos \
+  # -L/usr/lib/swift \
+  # -Xlinker -add_ast_path -Xlinker /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/JardinDeJuegos.build/Release-iphoneos/JardinDeJuegos.build/Objects-normal/arm64/JardinDeJuegos.swiftmodule \
+  # -ObjC \
+  # -lPods-JardinDeJuegos \
+  # -Xlinker -no_adhoc_codesign\
+  #  -Xlinker -dependency_info -Xlinker /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Intermediates.noindex/ArchiveIntermediates/JardinDeJuegos/IntermediateBuildFilesPath/JardinDeJuegos.build/Release-iphoneos/JardinDeJuegos.build/Objects-normal/arm64/JardinDeJuegos_dependency_info.dat \
+  #  -o "$EXEC_PATH"
 }
 
 generate_dsym() {
@@ -190,8 +234,8 @@ sign() {
 }
 
 copy_app() {
-  ln -s "$ARCHIVE" "$LOG_OUTPUT"
   echo_section "Copy .app" #********************************************************************
+  ln -s "$ARCHIVE" "$LOG_OUTPUT"
   cp -R "$APP_PATH" "$LOG_OUTPUT"
 }
 
@@ -223,7 +267,9 @@ generate_ipa() {
 archive
 log_parser        # Extracts derivedData paths, cert ID, and link arguments from xcode raw log
 set_environment
-link_ir            # Link all .bc files (from swift), all .lto (from obj-c/c/c++) using 'llvm-link'
+link_ir           # Link all .bc files (from swift), all .lto (from obj-c/c/c++) using 'llvm-link'. 
+                  # This produces an unique IR file that contains all the app
+                  
 opt               # Optimizer
 llc               # Runs machine outliner and produces a Mach-O file 
 link_o            # clang linker
@@ -232,7 +278,7 @@ generate_dsym
 strip
 sign
 copy_app
-extract_bitcode
-generate_ipa
+# extract_bitcode
+# generate_ipa
 
 
