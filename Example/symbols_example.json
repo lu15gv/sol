@@ -1,0 +1,26 @@
+{
+  "libraries": [
+    {
+      "name": "Amplitud",
+      "symbols": [
+        {
+          "old": "IDENTIFY_EVENT",
+          "new": "IDENTIFY_EVENT_AMPLITUD"
+        }
+      ]
+    },
+    {
+      "name": "SomeLibrary",
+      "symbols": [
+        {
+          "regex": "some regex 1 here",
+          "new": "new symbol 1 here"
+        },
+        {
+          "regex": "some regex 2 here",
+          "new": "new symbol 2 here"
+        }
+      ]
+    }
+  ]
+}
