@@ -1,4 +1,5 @@
 # LLVM tools for machine outlining
+Patched LLVM tools to work alongside https://github.com/lu15gv/sol
 ## Compiled binaries
 Here you can find LLVM compiled binaries for different version of Xcode.
 Just clone this repo and select any of the **XCODE_X_X** directories (for example XCODE_12_5).
