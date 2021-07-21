@@ -159,7 +159,7 @@ llc() {
 link_o() {
   echo_section "Link" #************************************************************************
   save_timestamp "linker started"
-  echo ${OPTIMIZED}WholeApp.ll > ${OPTIMIZED}WholeApp.LinkFileList
+  echo ${OPTIMIZED}WholeApp.o > ${OPTIMIZED}WholeApp.LinkFileList
   ARCHIVE_ROOT=~/Library/Developer/Xcode/Archives
   MOST_RECENT_ARCHIVE_DIRECTORY=$(ls -t $ARCHIVE_ROOT | head -n 1)
   MOST_RECENT_ARCHIVE=$(ls -t $ARCHIVE_ROOT/$MOST_RECENT_ARCHIVE_DIRECTORY | head -n 1)
@@ -274,7 +274,7 @@ opt               # Optimizer
 llc               # Runs machine outliner and produces a Mach-O file 
 link_o            # clang linker
 generate_dsym 
-# verify_dsym
+verify_dsym
 strip
 sign
 copy_app
