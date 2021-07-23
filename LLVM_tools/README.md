@@ -5,7 +5,7 @@ Here you can find LLVM compiled binaries for different version of Xcode.
 Just clone this repo and select any of the **XCODE_X_X** directories (for example XCODE_12_5).
 ## Compile it by yourself
 You can also apply the necessary changes and build the LLVM project by yourself by following the next intrusctions:
-1. Clone Apple's LLVM fork: https://github.com/apple/swift-llvm
+1. Clone Apple's LLVM fork: https://github.com/apple/llvm-project
 2. `git checkout` the `tag` that corresponds your Xcode version.
 
 | Xcode version | LLVM version | tag      |
@@ -30,6 +30,6 @@ Note: You only need to apply the ❌ ones
 
 5. Install ninja with homebrew, open the terminal an run `brew install ninja`
 6. Copy [build_llvm.sh](https://github.com/lu15gv/sol/blob/main/LLVM_tools/build_llvm.sh) script to the root of swift-llvm project (the one that you cloned in step 1).
-7. Open the terminal and `cd swift-llvm`
+7. Open the terminal and `cd <path to llvm-project>`
 8. Build it with `sh build_llvm.sh`
 9. You will find the binarias under **OPTIMIZED** directory
