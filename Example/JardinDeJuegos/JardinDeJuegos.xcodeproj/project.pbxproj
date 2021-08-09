@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BDEB3B1B71086F410A55F69 /* libPods-JardinDeJuegos-JardinDeJuegosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B37F36B276F0D89379246A0 /* libPods-JardinDeJuegos-JardinDeJuegosUITests.a */; };
+		531D9F388FEE8A722C8BDDA2 /* libPods-JardinDeJuegos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAF364CC7C20BEC0B26308B /* libPods-JardinDeJuegos.a */; };
+		938CA7278947DA3602D4FDFB /* libPods-JardinDeJuegosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3585C3ED80B167412F7BF621 /* libPods-JardinDeJuegosTests.a */; };
+		993F44D8253A29B300D71EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F44D7253A29B300D71EC6 /* AppDelegate.swift */; };
+		993F44DC253A29B300D71EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F44DB253A29B300D71EC6 /* ViewController.swift */; };
+		993F44DF253A29B300D71EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993F44DD253A29B300D71EC6 /* Main.storyboard */; };
+		993F44E1253A29B500D71EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993F44E0253A29B500D71EC6 /* Assets.xcassets */; };
+		993F44E4253A29B500D71EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993F44E2253A29B500D71EC6 /* LaunchScreen.storyboard */; };
+		993F44EF253A29B500D71EC6 /* JardinDeJuegosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F44EE253A29B500D71EC6 /* JardinDeJuegosTests.swift */; };
+		993F44FA253A29B600D71EC6 /* JardinDeJuegosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F44F9253A29B600D71EC6 /* JardinDeJuegosUITests.swift */; };
+		993F450B253A29CB00D71EC6 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F450A253A29CB00D71EC6 /* LocalStorage.swift */; };
+		993F4510253A2A0500D71EC6 /* Storageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F450F253A2A0500D71EC6 /* Storageable.swift */; };
+		99C4B2A2253E054800A13374 /* AppConfigValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4B2A1253E054800A13374 /* AppConfigValue.swift */; };
+		99C4B2A7253E06C300A13374 /* AppConfigValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4B2A6253E06C300A13374 /* AppConfigValueTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		993F44EB253A29B500D71EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 993F44CC253A29B300D71EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 993F44D3253A29B300D71EC6;
+			remoteInfo = JardinDeJuegos;
+		};
+		993F44F6253A29B600D71EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 993F44CC253A29B300D71EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 993F44D3253A29B300D71EC6;
+			remoteInfo = JardinDeJuegos;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D2F693F7C3AE6A8CF541AAF /* Pods-JardinDeJuegos-JardinDeJuegosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegos-JardinDeJuegosUITests.release.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegos-JardinDeJuegosUITests/Pods-JardinDeJuegos-JardinDeJuegosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3585C3ED80B167412F7BF621 /* libPods-JardinDeJuegosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JardinDeJuegosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCCEC13F48A749260D2AFE5 /* Pods-JardinDeJuegos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegos.debug.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegos/Pods-JardinDeJuegos.debug.xcconfig"; sourceTree = "<group>"; };
+		7844A430DC2F81F790AA3CFC /* Pods-JardinDeJuegosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegosTests.debug.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegosTests/Pods-JardinDeJuegosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83FE6091A321D17C79B6C16A /* Pods-JardinDeJuegosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegosTests.release.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegosTests/Pods-JardinDeJuegosTests.release.xcconfig"; sourceTree = "<group>"; };
+		8B37F36B276F0D89379246A0 /* libPods-JardinDeJuegos-JardinDeJuegosUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JardinDeJuegos-JardinDeJuegosUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		993F44D4253A29B300D71EC6 /* JardinDeJuegos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JardinDeJuegos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		993F44D7253A29B300D71EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		993F44DB253A29B300D71EC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		993F44DE253A29B300D71EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		993F44E0253A29B500D71EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		993F44E3253A29B500D71EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		993F44E5253A29B500D71EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993F44EA253A29B500D71EC6 /* JardinDeJuegosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JardinDeJuegosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		993F44EE253A29B500D71EC6 /* JardinDeJuegosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JardinDeJuegosTests.swift; sourceTree = "<group>"; };
+		993F44F0253A29B500D71EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993F44F5253A29B500D71EC6 /* JardinDeJuegosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JardinDeJuegosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		993F44F9253A29B600D71EC6 /* JardinDeJuegosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JardinDeJuegosUITests.swift; sourceTree = "<group>"; };
+		993F44FB253A29B600D71EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993F450A253A29CB00D71EC6 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		993F450F253A2A0500D71EC6 /* Storageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storageable.swift; sourceTree = "<group>"; };
+		99C4B2A1253E054800A13374 /* AppConfigValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigValue.swift; sourceTree = "<group>"; };
+		99C4B2A6253E06C300A13374 /* AppConfigValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigValueTests.swift; sourceTree = "<group>"; };
+		99FB320626142DC500D70A97 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		99FB324C2617A52A00D70A97 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		99FB32502617A52A00D70A97 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		CDF6188F16F2C4C60A7F3782 /* Pods-JardinDeJuegos-JardinDeJuegosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegos-JardinDeJuegosUITests.debug.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegos-JardinDeJuegosUITests/Pods-JardinDeJuegos-JardinDeJuegosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E9E4C31BA336490C55DA0304 /* Pods-JardinDeJuegos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JardinDeJuegos.release.xcconfig"; path = "Target Support Files/Pods-JardinDeJuegos/Pods-JardinDeJuegos.release.xcconfig"; sourceTree = "<group>"; };
+		FBAF364CC7C20BEC0B26308B /* libPods-JardinDeJuegos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JardinDeJuegos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		993F44D1253A29B300D71EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				531D9F388FEE8A722C8BDDA2 /* libPods-JardinDeJuegos.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44E7253A29B500D71EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938CA7278947DA3602D4FDFB /* libPods-JardinDeJuegosTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44F2253A29B500D71EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDEB3B1B71086F410A55F69 /* libPods-JardinDeJuegos-JardinDeJuegosUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CF803864D6F4100A967599D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99FB324C2617A52A00D70A97 /* libc++.1.tbd */,
+				99FB32502617A52A00D70A97 /* libc++abi.tbd */,
+				99FB320626142DC500D70A97 /* libc++.tbd */,
+				FBAF364CC7C20BEC0B26308B /* libPods-JardinDeJuegos.a */,
+				8B37F36B276F0D89379246A0 /* libPods-JardinDeJuegos-JardinDeJuegosUITests.a */,
+				3585C3ED80B167412F7BF621 /* libPods-JardinDeJuegosTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77BE1CE1DD9CD38A8C9F05D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3BCCEC13F48A749260D2AFE5 /* Pods-JardinDeJuegos.debug.xcconfig */,
+				E9E4C31BA336490C55DA0304 /* Pods-JardinDeJuegos.release.xcconfig */,
+				CDF6188F16F2C4C60A7F3782 /* Pods-JardinDeJuegos-JardinDeJuegosUITests.debug.xcconfig */,
+				0D2F693F7C3AE6A8CF541AAF /* Pods-JardinDeJuegos-JardinDeJuegosUITests.release.xcconfig */,
+				7844A430DC2F81F790AA3CFC /* Pods-JardinDeJuegosTests.debug.xcconfig */,
+				83FE6091A321D17C79B6C16A /* Pods-JardinDeJuegosTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		993F44CB253A29B300D71EC6 = {
+			isa = PBXGroup;
+			children = (
+				993F44D6253A29B300D71EC6 /* JardinDeJuegos */,
+				993F44ED253A29B500D71EC6 /* JardinDeJuegosTests */,
+				993F44F8253A29B600D71EC6 /* JardinDeJuegosUITests */,
+				993F44D5253A29B300D71EC6 /* Products */,
+				77BE1CE1DD9CD38A8C9F05D2 /* Pods */,
+				6CF803864D6F4100A967599D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		993F44D5253A29B300D71EC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				993F44D4253A29B300D71EC6 /* JardinDeJuegos.app */,
+				993F44EA253A29B500D71EC6 /* JardinDeJuegosTests.xctest */,
+				993F44F5253A29B500D71EC6 /* JardinDeJuegosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		993F44D6253A29B300D71EC6 /* JardinDeJuegos */ = {
+			isa = PBXGroup;
+			children = (
+				993F44D7253A29B300D71EC6 /* AppDelegate.swift */,
+				993F44DB253A29B300D71EC6 /* ViewController.swift */,
+				993F44DD253A29B300D71EC6 /* Main.storyboard */,
+				993F44E0253A29B500D71EC6 /* Assets.xcassets */,
+				993F44E2253A29B500D71EC6 /* LaunchScreen.storyboard */,
+				993F44E5253A29B500D71EC6 /* Info.plist */,
+				993F450A253A29CB00D71EC6 /* LocalStorage.swift */,
+				993F450F253A2A0500D71EC6 /* Storageable.swift */,
+				99C4B2A1253E054800A13374 /* AppConfigValue.swift */,
+			);
+			path = JardinDeJuegos;
+			sourceTree = "<group>";
+		};
+		993F44ED253A29B500D71EC6 /* JardinDeJuegosTests */ = {
+			isa = PBXGroup;
+			children = (
+				993F44EE253A29B500D71EC6 /* JardinDeJuegosTests.swift */,
+				993F44F0253A29B500D71EC6 /* Info.plist */,
+				99C4B2A6253E06C300A13374 /* AppConfigValueTests.swift */,
+			);
+			path = JardinDeJuegosTests;
+			sourceTree = "<group>";
+		};
+		993F44F8253A29B600D71EC6 /* JardinDeJuegosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				993F44F9253A29B600D71EC6 /* JardinDeJuegosUITests.swift */,
+				993F44FB253A29B600D71EC6 /* Info.plist */,
+			);
+			path = JardinDeJuegosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		993F44D3253A29B300D71EC6 /* JardinDeJuegos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 993F44FE253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegos" */;
+			buildPhases = (
+				1259B283B87B032C61557273 /* [CP] Check Pods Manifest.lock */,
+				995BF72D262F67BE00BB2B64 /* ShellScript */,
+				993F44D0253A29B300D71EC6 /* Sources */,
+				993F44D1253A29B300D71EC6 /* Frameworks */,
+				993F44D2253A29B300D71EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JardinDeJuegos;
+			productName = JardinDeJuegos;
+			productReference = 993F44D4253A29B300D71EC6 /* JardinDeJuegos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		993F44E9253A29B500D71EC6 /* JardinDeJuegosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 993F4501253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegosTests" */;
+			buildPhases = (
+				CF1EEAA5808096BCC6D51083 /* [CP] Check Pods Manifest.lock */,
+				993F44E6253A29B500D71EC6 /* Sources */,
+				993F44E7253A29B500D71EC6 /* Frameworks */,
+				993F44E8253A29B500D71EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				993F44EC253A29B500D71EC6 /* PBXTargetDependency */,
+			);
+			name = JardinDeJuegosTests;
+			productName = JardinDeJuegosTests;
+			productReference = 993F44EA253A29B500D71EC6 /* JardinDeJuegosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		993F44F4253A29B500D71EC6 /* JardinDeJuegosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 993F4504253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegosUITests" */;
+			buildPhases = (
+				78958205ACFFB36946BB6243 /* [CP] Check Pods Manifest.lock */,
+				993F44F1253A29B500D71EC6 /* Sources */,
+				993F44F2253A29B500D71EC6 /* Frameworks */,
+				993F44F3253A29B500D71EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				993F44F7253A29B600D71EC6 /* PBXTargetDependency */,
+			);
+			name = JardinDeJuegosUITests;
+			productName = JardinDeJuegosUITests;
+			productReference = 993F44F5253A29B500D71EC6 /* JardinDeJuegosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		993F44CC253A29B300D71EC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					993F44D3253A29B300D71EC6 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					993F44E9253A29B500D71EC6 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 993F44D3253A29B300D71EC6;
+					};
+					993F44F4253A29B500D71EC6 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 993F44D3253A29B300D71EC6;
+					};
+				};
+			};
+			buildConfigurationList = 993F44CF253A29B300D71EC6 /* Build configuration list for PBXProject "JardinDeJuegos" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 993F44CB253A29B300D71EC6;
+			productRefGroup = 993F44D5253A29B300D71EC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				993F44D3253A29B300D71EC6 /* JardinDeJuegos */,
+				993F44E9253A29B500D71EC6 /* JardinDeJuegosTests */,
+				993F44F4253A29B500D71EC6 /* JardinDeJuegosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		993F44D2253A29B300D71EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				993F44E4253A29B500D71EC6 /* LaunchScreen.storyboard in Resources */,
+				993F44E1253A29B500D71EC6 /* Assets.xcassets in Resources */,
+				993F44DF253A29B300D71EC6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44E8253A29B500D71EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44F3253A29B500D71EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1259B283B87B032C61557273 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JardinDeJuegos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78958205ACFFB36946BB6243 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JardinDeJuegos-JardinDeJuegosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		995BF72D262F67BE00BB2B64 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"Dummy script\"\n";
+		};
+		CF1EEAA5808096BCC6D51083 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JardinDeJuegosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		993F44D0253A29B300D71EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				993F44DC253A29B300D71EC6 /* ViewController.swift in Sources */,
+				99C4B2A2253E054800A13374 /* AppConfigValue.swift in Sources */,
+				993F4510253A2A0500D71EC6 /* Storageable.swift in Sources */,
+				993F450B253A29CB00D71EC6 /* LocalStorage.swift in Sources */,
+				993F44D8253A29B300D71EC6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44E6253A29B500D71EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				993F44EF253A29B500D71EC6 /* JardinDeJuegosTests.swift in Sources */,
+				99C4B2A7253E06C300A13374 /* AppConfigValueTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993F44F1253A29B500D71EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				993F44FA253A29B600D71EC6 /* JardinDeJuegosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		993F44EC253A29B500D71EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 993F44D3253A29B300D71EC6 /* JardinDeJuegos */;
+			targetProxy = 993F44EB253A29B500D71EC6 /* PBXContainerItemProxy */;
+		};
+		993F44F7253A29B600D71EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 993F44D3253A29B300D71EC6 /* JardinDeJuegos */;
+			targetProxy = 993F44F6253A29B600D71EC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		993F44DD253A29B300D71EC6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				993F44DE253A29B300D71EC6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		993F44E2253A29B500D71EC6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				993F44E3253A29B500D71EC6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		993F44FC253A29B600D71EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		993F44FD253A29B600D71EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		993F44FF253A29B600D71EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BCCEC13F48A749260D2AFE5 /* Pods-JardinDeJuegos.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34ED4FWC33;
+				ENABLE_BITCODE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				INFOPLIST_FILE = JardinDeJuegos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LLVM_LTO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Swinject\"",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Swinject/Swinject.modulemap\" -Xfrontend -emit-bc";
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegos.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/Dummy\" /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Products/Release-iphonesimulator/Dummy/";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		993F4500253A29B600D71EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E4C31BA336490C55DA0304 /* Pods-JardinDeJuegos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34ED4FWC33;
+				ENABLE_BITCODE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = z;
+				INFOPLIST_FILE = JardinDeJuegos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LLVM_LTO = NO;
+				OTHER_CFLAGS = "-g";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Swinject\"",
+				);
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegos.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/Dummy\" /Users/luis.gomez/Library/Developer/Xcode/DerivedData/JardinDeJuegos-cvsqdjbhnxlqghcjfdsyzmfkxxzk/Build/Products/Release-iphonesimulator/Dummy/";
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		993F4502253A29B600D71EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7844A430DC2F81F790AA3CFC /* Pods-JardinDeJuegosTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VP7M442837;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				INFOPLIST_FILE = JardinDeJuegosTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JardinDeJuegos.app/JardinDeJuegos";
+			};
+			name = Debug;
+		};
+		993F4503253A29B600D71EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83FE6091A321D17C79B6C16A /* Pods-JardinDeJuegosTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VP7M442837;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				INFOPLIST_FILE = JardinDeJuegosTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JardinDeJuegos.app/JardinDeJuegos";
+			};
+			name = Release;
+		};
+		993F4505253A29B600D71EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDF6188F16F2C4C60A7F3782 /* Pods-JardinDeJuegos-JardinDeJuegosUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VP7M442837;
+				INFOPLIST_FILE = JardinDeJuegosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JardinDeJuegos;
+			};
+			name = Debug;
+		};
+		993F4506253A29B600D71EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D2F693F7C3AE6A8CF541AAF /* Pods-JardinDeJuegos-JardinDeJuegosUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VP7M442837;
+				INFOPLIST_FILE = JardinDeJuegosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lagv.JardinDeJuegosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JardinDeJuegos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		993F44CF253A29B300D71EC6 /* Build configuration list for PBXProject "JardinDeJuegos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993F44FC253A29B600D71EC6 /* Debug */,
+				993F44FD253A29B600D71EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		993F44FE253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993F44FF253A29B600D71EC6 /* Debug */,
+				993F4500253A29B600D71EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		993F4501253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993F4502253A29B600D71EC6 /* Debug */,
+				993F4503253A29B600D71EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		993F4504253A29B600D71EC6 /* Build configuration list for PBXNativeTarget "JardinDeJuegosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993F4505253A29B600D71EC6 /* Debug */,
+				993F4506253A29B600D71EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 993F44CC253A29B300D71EC6 /* Project object */;
+}
