@@ -30,3 +30,5 @@ Now, you just need to open a terminal window and run
 `sh <path to sol project>/Example/runme.sh`
 
 This will archive the project and then optimize it. You can find the archive by open Xcode > Window > Organizer > Archives. If you inspect the archive in finder (Show package contents), you can find the optimized version in `Products/Applications`.
+
+> Note: this was a POC that went well. For now it doesn't have tests and it's not very scalable. I hope to have a better version of this with tests and be more flexible soon.
